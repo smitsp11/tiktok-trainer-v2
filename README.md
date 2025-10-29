@@ -1,236 +1,87 @@
-# TikTok Trainer - AI Content Trainer App
+# TikTok Trainer
 
-A comprehensive mobile application that helps users build a consistent video reflection habit through gamification, context-aware prompts, and progress tracking.
+An AI-powered content creation trainer app that helps you build consistent video reflection habits through gamification, smart scheduling, and context-aware prompts.
 
-## Features
+## What It Does
 
-### 🎯 Smart Onboarding
-- Personalized welcome flow
-- Weekly schedule integration
-- Activity-based prompt generation
+- **Schedule Integration**: Add your weekly activities (gym, classes, meetings, study sessions)
+- **Smart Prompts**: Get personalized reflection questions after each activity
+- **Video Reflections**: Record quick video reflections with the built-in camera
+- **Streak Tracking**: Build daily streaks with a GitHub-style 30-day visualization
+- **Gamification**: Unlock 10+ badges as you hit milestones
+- **Progress Analytics**: Track your consistency with calendar views and detailed stats
 
-### 📱 Main Dashboard
-- GitHub-style streak tracker (30-day visualization)
-- Upcoming contextual prompts
-- Quick stats overview
-- Badge progress display
+## Prerequisites
 
-### 🎬 Video Recording
-- Embedded camera with front/back toggle
-- Up to 60-second video reflections
-- Real-time recording timer
-- Preview and retake options
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [Expo Go](https://expo.dev/go) app on your iOS or Android device
 
-### 📊 Progress Tracking
-- Interactive calendar with reflection markers
-- Detailed analytics (monthly, weekly averages)
-- Activity history timeline
-- Comprehensive stats display
+## Installation & Setup
 
-### 🏆 Gamification
-- 10+ unique badges to unlock
-- Streak-based achievements
-- Activity-specific milestones
-- Progress bars for locked badges
-
-### 🔔 Smart Notifications
-- Context-aware prompts after activities
-- Customizable notification timing
-- Badge unlock celebrations
-- Non-intrusive reminder system
-
-## Tech Stack
-
-- **React Native** with Expo
-- **TypeScript** for type safety
-- **Zustand** for state management
-- **React Navigation** for routing
-- **Expo Camera** for video recording
-- **Expo Notifications** for push notifications
-- **AsyncStorage** for local data persistence
-- **date-fns** for date manipulation
-- **react-native-calendars** for calendar views
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm or yarn
-- Expo CLI
-- iOS Simulator (for Mac) or Android Emulator
-
-### Installation
-
-1. Clone the repository:
+1. **Clone the repository**
 ```bash
+git clone https://github.com/smitsp11/tiktok-trainer-v2.git
 cd tiktok-trainer-v2
 ```
 
-2. Install dependencies:
+2. **Clean install dependencies** (important - avoids version conflicts)
 ```bash
-npm install
+rm -rf node_modules package-lock.json
+npm cache clean --force
+npm install --force
 ```
 
-3. Start the development server:
+3. **Start the development server**
 ```bash
 npm start
 ```
 
-4. Run on iOS:
+4. **Run on your device**
+   - Install **Expo Go** from the App Store (iOS) or Google Play (Android)
+   - Scan the QR code shown in your terminal with:
+     - **iOS**: Camera app
+     - **Android**: Expo Go app
+   - The app will load on your device
+
+## Troubleshooting
+
+### Dependency Conflicts
+If you see ERESOLVE errors during installation:
 ```bash
-npm run ios
+rm -rf node_modules package-lock.json
+npm install --force
 ```
 
-5. Run on Android:
+### Missing Babel Plugin
+If you see "Cannot find module 'babel-plugin-module-resolver'":
 ```bash
-npm run android
+npm install --save-dev babel-plugin-module-resolver
 ```
 
-## Project Structure
+### Asset Warnings
+Asset warnings about missing icons can be safely ignored - the app will still run. Default placeholder icons are included.
 
-```
-tiktok-trainer-v2/
-├── src/
-│   ├── components/          # Reusable UI components
-│   │   ├── BadgeCard.tsx
-│   │   ├── PromptCard.tsx
-│   │   └── StreakTracker.tsx
-│   ├── constants/           # App constants and theme
-│   │   ├── badges.ts
-│   │   ├── prompts.ts
-│   │   └── theme.ts
-│   ├── navigation/          # Navigation configuration
-│   │   └── RootNavigator.tsx
-│   ├── screens/             # App screens
-│   │   ├── onboarding/     # Onboarding flow
-│   │   ├── BadgesScreen.tsx
-│   │   ├── CameraScreen.tsx
-│   │   ├── DashboardScreen.tsx
-│   │   ├── ProgressScreen.tsx
-│   │   └── SettingsScreen.tsx
-│   ├── services/            # Business logic services
-│   │   ├── badgeService.ts
-│   │   ├── notificationService.ts
-│   │   ├── promptService.ts
-│   │   ├── storage.ts
-│   │   └── streakService.ts
-│   ├── store/               # State management
-│   │   └── useAppStore.ts
-│   └── types/               # TypeScript definitions
-│       └── index.ts
-├── App.tsx
-├── app.json
-├── package.json
-└── tsconfig.json
-```
+### Package Version Warnings
+The app is configured for Expo SDK 54. Version warnings can be safely ignored if the app runs correctly.
 
-## Key Features Explained
+## First Run
 
-### Context-Aware Prompts
+When you first launch the app:
+1. **Welcome Screen** - Learn about the features
+2. **Enter Your Name** - Personalize your experience
+3. **Build Your Schedule** - Add weekly activities
+4. **Start Reflecting** - Record your first video!
 
-The app generates intelligent prompts based on your schedule:
-- **Gym**: "How did your workout feel today?"
-- **Class**: "What was the most interesting thing you learned?"
-- **Meeting**: "Share the most valuable insight from the discussion!"
-- **Study**: "What topic did you cover in your study session?"
+## Tech Stack
 
-### Streak System
-
-- Tracks daily video reflections
-- Visualizes 30-day activity history
-- Calculates current and longest streaks
-- Shows progress with dynamic emojis (🌱 → 🌿 → 🌳 → 🔥 → ⚡)
-
-### Badge System
-
-Achievements include:
-- **First Steps**: Record your first reflection
-- **Week Warrior**: Maintain a 7-day streak
-- **Consistent Creator**: 5 reflections in one week
-- **Monthly Master**: 30-day streak
-- **Centurion**: 100 total reflections
-- And more!
-
-## User Flow
-
-1. **Onboarding**
-   - Welcome screen with app introduction
-   - Name input for personalization
-   - Schedule setup (add weekly activities)
-
-2. **Daily Usage**
-   - View upcoming prompts on dashboard
-   - Receive notifications after scheduled activities
-   - Open camera to record reflection
-   - Review and save video
-   - Track streak and unlock badges
-
-3. **Progress Review**
-   - Check calendar for reflection history
-   - View detailed analytics
-   - Explore unlocked badges
-   - Adjust settings and schedule
-
-## Customization
-
-### Adding New Activity Types
-
-Edit `src/types/index.ts`:
-```typescript
-export type ActivityType = 'gym' | 'class' | 'meeting' | 'study' | 'custom' | 'other';
-```
-
-Add prompts in `src/constants/prompts.ts`:
-```typescript
-export const PROMPT_TEMPLATES: Record<ActivityType, string[]> = {
-  custom: [
-    "Your custom prompt here",
-    // ...
-  ],
-};
-```
-
-### Creating New Badges
-
-Add to `src/constants/badges.ts`:
-```typescript
-{
-  id: 'unique-badge-id',
-  name: 'Badge Name',
-  description: 'Badge description',
-  icon: '🎉',
-  requirement: 'Complete X reflections',
-  total: X,
-}
-```
-
-Implement unlock logic in `src/services/badgeService.ts`.
-
-## Future Enhancements
-
-- [ ] Cloud sync for multi-device support
-- [ ] Video transcription and AI insights
-- [ ] Social features (share reflections)
-- [ ] Advanced analytics and trends
-- [ ] Custom activity types and prompts
-- [ ] Export reflections as montage video
-- [ ] Integration with calendar apps
-- [ ] Mood tracking over time
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-MIT License - feel free to use this project for personal or commercial purposes.
-
-## Support
-
-For issues or questions, please open an issue on GitHub.
+- React Native with Expo SDK 54
+- TypeScript
+- Zustand (state management)
+- React Navigation
+- Expo Camera, Notifications, AV
+- AsyncStorage
 
 ---
 
-Built with ❤️ using React Native and Expo
+Built using React Native and Expo
 
