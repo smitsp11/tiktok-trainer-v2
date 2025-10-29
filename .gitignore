@@ -32,6 +32,7 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+package-lock.json
 
 # BUCK
 buck-out/
@@ -63,5 +64,6 @@ FEATURES.md
 ARCHITECTURE.md
 PROJECT_SUMMARY.md
 CONTRIBUTING.md
+FILE_LIST.md
 .env.example
 
